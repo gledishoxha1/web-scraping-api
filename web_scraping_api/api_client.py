@@ -10,9 +10,6 @@ Module për integrim me API:
 
 import requests
 
-# -------------------
-# Currency conversion
-# -------------------
 def convert_price(amount: float, from_currency: str = "GBP", to_currency: str = "USD") -> float:
     """
     Konverton amount nga from_currency në to_currency
@@ -28,9 +25,6 @@ def convert_price(amount: float, from_currency: str = "GBP", to_currency: str = 
         print("Currency conversion error:", e)
         return amount
 
-# -------------------
-# Open Library API
-# -------------------
 def get_book_info(title: str) -> dict:
     """
     Merr informacion për libër nga Open Library Search API
@@ -43,7 +37,7 @@ def get_book_info(title: str) -> dict:
         docs = data.get("docs", [])
         if not docs:
             return {}
-        book_data = docs[0]  # merr librin e parë nga rezultatet
+        book_data = docs[0]  
         return {
             "title": book_data.get("title"),
             "author_name": book_data.get("author_name", []),
